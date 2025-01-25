@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: 0;
+}
+
+@font-face {
+    font-family: google;
+    src: url(../f1.ttf);
+}
+
+
+
+.google{
+    --cardBg: #d1c7c7; 
+    --Hc:#000;
+    --filter: 0;
+    --list: #e1dcdc;
+    height: 100vh;
+    background: white;
+    text-align: center;
+    padding-top: 10vw;
+    transition: .5s;
+}
+
+.title{
+    font: bold 6vw google;
+    display: flex;
+    justify-content: center;
+}
+
+.title span{
+    color: var(--color);
+    transition: .9s;
+}
+
+.block{
+    width: 38vw;
+    margin: 0 auto;
+    margin-top: 3vw;
+    box-shadow: 0 0 10px #0004;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    transition: .4s;
+}
+
+.list{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 10px #0004;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 3px;
+    transition: 1s;
+    display: none;
+    z-index: 3;
+    background: white;
+}
+
+.listItem{
+    padding: 10px 10px 10px 25px;
+    font: bold 18px verdana;
+    box-shadow: 0 0 4px #0004;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    transition: .5s;
+}
+
+
+.listItem:hover{
+    background: var(--list);
+}
+
+.listItem.active::after{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: #4285f4;
+    border-radius: 0 15px 15px 0;
+}
+
+.allColor{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 12px black;
+    padding: 6px;
+    border-radius: 8px;
+    transition: .5s;
+    opacity: 0;
+    pointer-events: none;
+} 
+
+
+
+.allColor button{
+    width: 23px;
+    height: 23px;
+    background: red;
+    margin: 0 3px;
+    border-radius: 50%;
+    border:  1px solid black;
+    box-shadow: inset 0 0 3px black;
+    cursor: pointer;
+    background: var(--gc);
+    transition: .5s;
+}
+
+.allColor button:hover{
+    translate: 0 -3px;
+    filter:brightness(1.5);
+}
+
+.allColor button:active{
+    translate: 0 1px;
+    transition: .1s;
+}
+
+.theme{
+    height: 45px;
+    overflow: hidden;
+}
+
+.search{
+    
+}
+
+.search input{
+    width: 30vw;
+    height: 45px;
+    border: none;
+    font: 15px verdana;
+    transition: .3s;
+}
+
+.search input::-webkit-search-cancel-button{
+    cursor: pointer;
+    transition: .2s;
+    filter: invert(var(--filter));
+}
+
+
+.block .btn{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    translate: 0 -3px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+
+.round{
+    width: 20px;
+    height: 20px;
+    border: 2px solid  rgb(72, 72, 72);
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.line{
+    width: 2px;
+    height: 14px;
+    background: rgb(72, 72, 72);
+    position: absolute;
+    right: 12px;
+    bottom: 3px;
+    rotate: -32deg;
+    transition: .4s;
+}
+
+.btn:hover .round{
+    border:2px solid var(--Hc);
+}
+
+.btn:hover .line{
+    background: var(--Hc);
+}
+
+
+.slide{
+    position: relative;
+    top: -45px;
+    transition: .4s;
+}
+
+.colors{
+    width: 35px;
+    height: 45px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+
+.colors::before{
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 11px;
+    width: 12px;
+    height: 25px;
+    background: green;
+    border-radius: 30px 0 0 30px;
+    box-shadow: inset 0 0 5px #0009;
+    transition: .4s;
+}
+
+.colors::after{
+    content: '';
+    position: absolute;
+    right: 4px;
+    top: 11px;
+    width: 12px;
+    height: 25px;
+    background: red;
+    border-radius: 0 30px 30px 0;
+    box-shadow: inset 0 0 5px #0009;
+    transition: 1s;
+}
+
+.colors:hover::before{
+    left: 17px;
+    rotate: 180deg;
+}
+
+.colors:hover::after{
+    right: 17px;
+    rotate: -180deg;
+}
+
+.lightNight{
+    width: 35px;
+    overflow: hidden;
+}
+
+.big{
+    width: 70px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -35px;
+    transition: .5s;
+}
+
+.item{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.son{
+    width: 17px;
+    height: 17px;
+    border: 2px solid rgb(72, 72, 72);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: .5s;
+}
+
+.son span{
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    width: 7px;
+    height: 3px;
+    background: rgb(72, 72, 72);
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 40deg)) translateX(11px);
+    transition: .5s;
+}
+
+.son:hover span{
+    background: var(--Hc);
+}
+
+.moon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: inset 11px 0 0  rgb(72, 72, 72);
+    cursor: pointer;
+    transition: .5s;
+    translate: 3px 0;
+}
+
+.son:hover{
+    border-color: var(--Hc);
+}
+
+.moon:hover{
+    box-shadow: inset 11px 0 0  var(--Hc);
+}
+
+.block__cell{
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    translate: -50% 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.cell{
+    width: calc(97% / 4);
+    height: calc(100% / 2);
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: .5s;
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover{
+    background: var(--cardBg);
+}
+
+.img{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    cursor: pointer;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+
+
