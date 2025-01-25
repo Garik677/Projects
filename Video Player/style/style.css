@@ -1,0 +1,409 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: 0;
+}
+
+.player{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.control{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background: linear-gradient(45deg, rgb(92, 104, 26), rgb(161, 62, 62));
+    opacity: .9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    translate: 0 0;
+    transition: .9s;
+}
+
+.playPauseStop{
+    display: flex;
+    column-gap: 12px;
+}
+
+.btn{
+    width: 70px;
+    height: 70px;
+    box-shadow: inset 0 0 15px white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(84, 36, 218);
+    cursor: pointer;
+    border: 2px solid white;
+    transition: .5s;
+}
+
+.btn:hover{
+    box-shadow: inset 0 0 30px white;
+}
+
+.btn:active{
+    transition: .1s;
+    scale: .9;
+    translate: 0 6px;
+}
+
+.up{
+    position: absolute;
+    font-size: 35px;
+    bottom: 5%;
+    right: 1%;
+    cursor: pointer;
+    transition: 2s;
+    color: white;
+    -webkit-text-stroke:2px black;
+    animation: upanm 1s infinite;
+}
+
+@keyframes upanm {
+    50%{translate: 0 -5px;}
+}
+
+.volume{
+    position: absolute;
+    left: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .5s 1s;
+    width: 0;
+    height: 0;
+    z-index: 1;
+}
+
+.range{
+    width: 80px;
+    height: 50px;
+    accent-color: white;
+}
+
+.sizeVolume{
+    margin-left: 5px;
+    font: bold 19px sans-serif;
+    opacity: 0;
+    transition: .5s;
+}
+
+.btnvol{
+    position: absolute;
+    left: 2.3%;
+    font-size: 20px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+.line{
+    position: absolute;
+    left: 2%;
+    z-index: 3;
+    width: 0;
+    rotate: 45deg;
+    height: 0;
+    background: red;
+    transition: .1s;
+    pointer-events: none;
+}
+
+
+#videoTime{
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+    z-index: 4;
+    width: 100%;
+    height: 5px;
+    appearance: none;
+    background: linear-gradient(to right, red 0, #111 0);
+    transition: .5s;
+    cursor: pointer;
+}
+
+#videoTime:hover{
+    height: 10px;
+    bottom: 10.2%;
+}
+
+#videoTime::-webkit-slider-thumb{
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    transition: .4s;    
+}
+
+#videoTime::-webkit-slider-thumb:hover{
+    width: 15px;
+    height: 15px;
+}
+
+.speedText{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 32%;
+}
+
+
+.speedBox{
+    position: absolute;
+    right: 35%;
+    top: -200px;
+    translate: 20% 0;
+    width: 100px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    clip-path: inset(100% 0 0 0);
+    transition: .5s;
+}
+
+.sppedTime{
+    width: 90%;
+    margin: 2px 0;
+    font: bold 16px verdana;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+    background: white;
+    padding: 2px 0;
+    box-shadow: inset 0 0 13px black;
+}
+
+.sppedTime:not(.active):hover{
+    background: #3d3d3d;
+    color: white;
+}
+
+.inset{
+    clip-path: inset(0);
+}
+
+.active{
+    background: rgb(34, 170, 16);
+    color: white;
+    box-shadow: inset 0 0 10px white;
+    scale: .95;
+}
+
+.loop{
+    position: absolute;
+    left: 33%;
+    font-size: 23px;
+    cursor: pointer;
+    color: #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loopNumber{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font: bold 15px verdana;
+    opacity: 0;
+}
+
+.loop:hover{
+    color: white;
+    transition: .4s;
+}
+
+.currentTimeVideo{
+    position: absolute;
+    right: 22%;
+    font: bold 15px verdana;
+    color: white;
+}
+
+.cameraIcon{
+    position: absolute;
+    right: 15%;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+
+.cameraVideo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 300px;
+    height: 180px;
+    border: 2px solid white;
+    z-index: 5;
+    border-radius: 10px;
+    scale: 0;
+}
+
+.screenBlock{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    z-index: 5;
+    display: flex;
+    transition: .5s;
+    backdrop-filter: blur(30px);
+}
+
+.listScreenPhotos{
+    width: 25%;
+    height: 100%;
+    background: black;
+    opacity: .9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.watchPhotos{
+    width: 75%;
+    height: 100vh;
+    backdrop-filter: blur(20px);
+    cursor: grab;
+}
+
+.watchPhotos:active{
+    cursor: grabbing;
+}
+
+.photo{
+    width: 300px;
+    height: 180px;
+    border: 3px solid white;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.photo:active{
+    transition: none;
+    scale: .9;
+}
+
+.listVideos{
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 25%;
+    height: 100%;
+    background: black;
+    opacity: .9;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    gap: 10px;
+    transition: .5s;
+}
+
+.toggleListVideo{
+    right: 0;
+}
+
+.clickVideoBox{
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    transition: .5s;
+    padding: 15px 10px;
+}
+
+.clickVideoBox:hover{
+    background: #888484;
+}
+
+.clickListVideo{
+    width: 300px;
+    height: 180px;
+    border: 3px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.clickListVideo:active{
+    transition: none;
+    scale: .94;
+}
+
+
+.listIcon{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    width: 53px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.listIcon .lineList{
+    width: 100%;
+    height: 2.5px;
+    background: white;
+    transition: .4s;
+}
+
+.lineList:nth-child(2){
+    width: 70%;
+}
+
+.listIcon:hover .lineList{
+    width: 100%;
+}
+
+#miniVideoRange{
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    width: 200px;
+    height: 120px;
+    border: 2px solid white;
+    opacity: 0;
+    transition:  .1s;
+}

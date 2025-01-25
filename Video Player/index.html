@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Video Player</title>
+</head>
+<body>
+    <div class="player">
+        <video class="video" src="video/video.mp4"></video>
+        <div class="control">
+            <div class="line"></div>
+            <button class="btnvol"><i class="fa-solid fa-volume-high"></i></button>
+            <div class="volume">
+                <input type="range" class="range" max="100" min="0" value="100">
+                <span class="sizeVolume">100%</span>
+            </div>
+            <div class="loop">
+                <i class="fa-solid fa-repeat"></i>
+                <p class="loopNumber">1</p>
+            </div>
+            <div class="playPauseStop">
+                <div class="btn prev"><i class="fa-solid fa-backward"></i></div>
+                <div class="btn pause"><i class="fa-solid fa-pause"></i></div>
+                <div class="btn play"><i class="fa-solid fa-play"></i></div>
+                <div class="btn stop"><i class="fa-solid fa-stop"></i></div>
+                <div class="btn next"><i class="fa-solid fa-forward"></i></div>
+            </div>
+            <div class="speedBox">
+                <button class="sppedTime">10x</button>
+                <button class="sppedTime">8x</button>
+                <button class="sppedTime">4x</button>
+                <button class="sppedTime">2x</button>
+                <button class="sppedTime active">Normal</button>
+                <button class="sppedTime">0.5x</button>
+                <button class="sppedTime">0.25x</button>
+            </div>
+            <h2 class="speedText">Speed</h2>
+            <div class="currentTimeVideo">
+                <span class="currentTimeMin">00</span>
+                :
+                <span class="currentTimeSec">00</span>
+                <span>/</span>
+                <span class="durMin">00</span>
+                :
+                <span class="durSec">00</span>
+            </div>
+            <div class="cameraIcon">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+        </div>
+        <div class="listVideos">
+            <div class="clickVideoBox">
+                <video src="video/video.mp4" class="clickListVideo" muted></video>
+            </div>
+            <div class="clickVideoBox">
+                <video src="video/video2.mp4" class="clickListVideo" muted></video>
+            </div>
+            <div class="clickVideoBox">
+                <video src="video/video3.mp4" class="clickListVideo" muted></video>
+            </div>
+        </div>
+        
+        <div class="listIcon">
+            <span class="lineList"></span>
+            <span class="lineList"></span>
+            <span class="lineList"></span>
+        </div>
+        <video src="video/video.mp4" class="cameraVideo" muted></video>
+        <div class="screenBlock">
+            <div class="listScreenPhotos"></div>
+            <video src="" muted class="watchPhotos"></video>
+        </div>
+        <div class="up"><i class="fa-solid fa-chevron-down"></i></div>
+        <input type="range" min="0" max="100" value="0" step="any" id="videoTime">
+        <video src="" id="miniVideoRange" muted></video>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
+<!-- <i class="fa-solid fa-chevron-up"></i> -->
