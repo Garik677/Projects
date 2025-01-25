@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    background: rgb(9, 120, 102);
+}
+
+.wrapper{
+    height: 100vh;
+    padding: 10px 30px;
+    background: linear-gradient(90deg, rgba(101,18,18,1) 0%, rgba(186,44,44,1) 49%, rgba(235,134,80,1) 100%, rgba(0,212,255,1) 100%);
+    position: relative;
+    overflow: hidden;
+    transition: 1s;
+    opacity: 1;
+    perspective: 1000px
+}
+
+.logoHref{
+    z-index: 20;
+}
+
+img{
+    pointer-events: none;
+}
+
+header{
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+}
+
+.logo{
+    height: 100px;
+    object-fit: contain;
+}
+
+ul{
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    list-style: none;
+}
+
+li{
+    font-size: 22px;
+    z-index: 40;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.Shop{
+    font-size: 25px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+main{
+    height: 80%;
+    z-index: 1;
+   display: flex;
+}
+
+.descJuiceBox{
+    position: absolute;
+    left: 10%;
+    top: 52%;
+    width: 450px;
+    height: 200px;
+    z-index: 60;
+    translate: 0 -50%;
+    color: white;
+    text-align: center;
+    padding: 20px 0; 
+    font: normal 18px sans-serif;
+}
+
+.fruitsBox{
+    position: relative;
+    top: 40%;
+    left: -47%;
+    width: 70%;
+    height: 100%;
+    pointer-events: none;
+    scale: .7;
+    transform-style: preserve-3d;
+    transition: 1s;
+    rotate: 0;
+
+}
+
+.fruitsImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    opacity: .4;
+    transform: rotateZ(calc(90deg * var(--i))) translateY(990px);
+    rotate: -45deg;
+    z-index: 0;
+}
+
+.joiceBox{
+    width: 650px;
+    height: 250px;
+    position: absolute;
+    left: 10%;
+    bottom: 2%;
+    translate: -20% 0;
+    display: flex;
+}
+
+.boxJuice{
+    position: relative;
+    width: calc(100% / 4);
+    height: 100%;
+    cursor: pointer;
+}
+
+.imageJuice{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    border-radius: 8px;
+    bottom: 0;
+    left: 0;
+    transition: 1s;
+}
+
+.viewJuice{
+    width: 30%;
+    height: 100%;
+    position: relative;
+    top: 100%;
+    right: -25%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    rotate: 0;
+    transition: 1s;
+}
+
+.juiceImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    transform: rotateZ(calc(90deg * var(--i))) translateY(-800px);
+    rotate: 55deg;
+    z-index: 0;
+}
